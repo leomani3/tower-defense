@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class ZombieMovement : MonoBehaviour
 {
@@ -9,24 +8,25 @@ public class ZombieMovement : MonoBehaviour
     private Transform target;
     private int waypointIndex = 0;
     private Rigidbody rb;
+    private NavMeshAgent navMeshAgent;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         target = WaypointManager.waypoints[0];
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void FixedUpdate()
     {
         //Si le zombie est arrivé au waypoint courant, il prend le suivant
-        if(Vector3.Distance(transform.position, target.position) < 0.1)
+        if(Vector3.Distance(transform.position, target.position) < 0.3)
         {
             getNextWaypoint();
         }
 
-        //le zombie regarde en direction du waypint en tout temps et avance tout droit
-        transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
-        rb.MovePosition(transform.position + (transform.forward * speed * Time.fixedDeltaTime));
+        //Déplacement vers la cible via le navmesh
+        navMeshAgent.SetDestination(target.position);
     }
 
     private void getNextWaypoint()
