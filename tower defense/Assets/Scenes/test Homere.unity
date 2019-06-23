@@ -567,8 +567,9 @@ MonoBehaviour:
   - {fileID: 2040198680012597689, guid: 86ff45e5b21e408479c819c067fd5774, type: 3}
   - {fileID: 6084180223139558082, guid: f2a34c1ed7a2f0e4c8c0350cd40f04a3, type: 3}
   - {fileID: 3951171273867437345, guid: 96a6011e49fb8794bb8764f7169e2166, type: 3}
-  ressourcesAmounts: 1e00000019000000140000000f000000
-  minRessourcesPackSize: 06000000040000000300000002000000
+  ressourcesAmounts: 1e0000001e0000001400000014000000
+  minRessourcesPackSize: 06000000040000000300000003000000
+  ressourcePackDensity: 1.5
 --- !u!4 &479159045
 Transform:
   m_ObjectHideFlags: 0

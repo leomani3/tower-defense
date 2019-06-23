@@ -32,6 +32,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject[] ressources;
     public int[] ressourcesAmounts;
     public int[] minRessourcesPackSize;
+    public float ressourcePackDensity;
     //public int minWoodPackSize;
     //public int minStonePackSize;
     //public int minIronPackSize;
@@ -187,7 +188,7 @@ public class LevelGenerator : MonoBehaviour
                     {
                         if (posX + l + mapSize * (posZ + k) >= 0 && posX + l + (posZ + k) * mapSize < mapSize * mapSize && gridCellOccupied[posX + l + (posZ + k) * mapSize] == false)
                         {
-                            if (UnityEngine.Random.Range(0, 2 * minRessourcesPackSize[i]) > Math.Max(Math.Abs(j), Math.Abs(k)))
+                            if (UnityEngine.Random.Range(0, ressourcePackDensity * minRessourcesPackSize[i]) > Math.Max(Math.Abs(j), Math.Abs(k)))
                             {
                                 GameObject go = Instantiate(ressources[i]);
                                 gridCellOccupied[posX + k + (posZ + l) * mapSize] = true;
