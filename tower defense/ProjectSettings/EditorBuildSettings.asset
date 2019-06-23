@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/test Homere.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Scenes/Title_screen.unity
+    guid: 8a6aa0d48066844459be6968e9bb7eee
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: 2c082aa2db9c3a3429eabbeb549ba6c1
   m_configObjects: {}
