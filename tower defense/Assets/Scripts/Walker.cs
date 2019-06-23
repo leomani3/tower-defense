@@ -10,7 +10,7 @@ public class Walker : Zombie
 
     private void Update()
     {
-        CheckIfDie();
+        base.Update();
 
         if (target != null)
         {

@@ -68,15 +68,6 @@ public class Base : Unit
         stoneAmount += value;
     }
 
-    //Override de la méthode de Unit car la mort de la base gère la fin de la partie
-    private new void CheckIfDie()
-    {
-        if (CurrentHealth <= 0)
-        {
-            //TODO : Mettre ici le code pour la fin de partie
-        }
-    }
-
     //------------- GETTERS / SETTERS -------------
 
     public int IronAmount

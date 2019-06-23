@@ -10,6 +10,12 @@ public class Unit : MonoBehaviour
     public Canvas HUD;
     private int currentHealth;
 
+    protected void Update()
+    {
+        CheckIfDie();
+        UpdateHUDRotation();
+    }
+
     private void Awake()
     {
         currentHealth = maxHealth;

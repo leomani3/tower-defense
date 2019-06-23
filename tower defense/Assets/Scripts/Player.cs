@@ -12,10 +12,9 @@ public class Player : Unit
     // Update is called once per frame
     void Update()
     {
-        CheckIfDie();
-        UpdateHUDRotation();
+        base.Update();
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Delete))
         {
             TakeDamage(1);
         }

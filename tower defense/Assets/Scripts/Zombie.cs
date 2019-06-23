@@ -17,6 +17,11 @@ public class Zombie : Unit
     protected SphereCollider sphereCollider;
     private Transform playerBase;
 
+    protected void Update()
+    {
+        base.Update();
+    }
+
 
     /// <summary>
     /// A appelé au Start();
