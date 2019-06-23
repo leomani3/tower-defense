@@ -28,12 +28,6 @@ public class PlayerController : MonoBehaviour
 
 
         //MANETTE : LE PLAYER REGARDE EN DIRECTION DE LA SOURIS
-        float hRightJoystick = Input.GetAxisRaw("HorizontalRightJoystick");
-        float vRightJoystick = Input.GetAxisRaw("VerticalRightJoystick");
-
-        Vector3 horizontal = new Vector3(0, 0, hRightJoystick);
-        Vector3 vertical = new Vector3(vRightJoystick, 0, 0);
-        transform.LookAt(transform.position + horizontal + vertical);
         //---------------------------------------------------
 
         float hAxis = Input.GetAxisRaw("Horizontal");
