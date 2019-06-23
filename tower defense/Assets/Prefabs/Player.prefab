@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1017647612}
   - component: {fileID: 1017647611}
   m_Layer: 0
-  m_Name: HealthBarBG (1)
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 1910731814}
   - component: {fileID: 1910731813}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 40, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.89}
+  m_AnchoredPosition: {x: 0, y: 2.35}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1910731815
@@ -373,6 +373,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  playerNumber: 1
+  characterInputString: 
 --- !u!54 &560470210
 Rigidbody:
   m_ObjectHideFlags: 0
