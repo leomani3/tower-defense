@@ -120,39 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 591e2d69fac6b5442ad3d38850226720, type: 2}
---- !u!1 &202207894 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1923761690568079457, guid: 8abff42770cf15246a9a11e808111da6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1923761691607391441}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &202207896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202207894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 152667a16fb05d54491c5e08854e7b97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  timeBetweenDamage: 1
---- !u!65 &202207897
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202207894}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3850515, y: 2.106788, z: 1.186857}
-  m_Center: {x: -0.11677221, y: 0.0026300552, z: 0.093431234}
 --- !u!1 &494245430
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,16 +487,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Base
       objectReference: {fileID: 0}
-    - target: {fileID: 1638028757459581144, guid: 0d892dea51f819d42873a9cadf6ba490,
-        type: 3}
-      propertyPath: m_TagString
-      value: Base
-      objectReference: {fileID: 0}
-    - target: {fileID: 1638028757459581144, guid: 0d892dea51f819d42873a9cadf6ba490,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -585,36 +542,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3875962234608146180, guid: 0d892dea51f819d42873a9cadf6ba490,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8171928144455084199, guid: 0d892dea51f819d42873a9cadf6ba490,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3850435038822587099, guid: 0d892dea51f819d42873a9cadf6ba490,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8435748116565879062, guid: 0d892dea51f819d42873a9cadf6ba490,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5821324521196357388, guid: 0d892dea51f819d42873a9cadf6ba490,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 631654467880526397, guid: 0d892dea51f819d42873a9cadf6ba490,
-        type: 3}
-      propertyPath: health
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d892dea51f819d42873a9cadf6ba490, type: 3}
 --- !u!1001 &1923761691607391441
@@ -628,21 +555,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923761690708270895, guid: 8abff42770cf15246a9a11e808111da6,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923761690708270895, guid: 8abff42770cf15246a9a11e808111da6,
-        type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923761690708270895, guid: 8abff42770cf15246a9a11e808111da6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1923761690708269266, guid: 8abff42770cf15246a9a11e808111da6,
         type: 3}
@@ -698,29 +610,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923761690568079457, guid: 8abff42770cf15246a9a11e808111da6,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923761690568079457, guid: 8abff42770cf15246a9a11e808111da6,
-        type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 220758774, guid: 8abff42770cf15246a9a11e808111da6, type: 3}
-      propertyPath: m_WalkableMask
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 220758774, guid: 8abff42770cf15246a9a11e808111da6, type: 3}
-      propertyPath: m_AngularSpeed
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923761690708269269, guid: 8abff42770cf15246a9a11e808111da6,
-        type: 3}
-      propertyPath: sightDistance
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8abff42770cf15246a9a11e808111da6, type: 3}
