@@ -549,6 +549,8 @@ MonoBehaviour:
   mapSize: 100
   mountainNumber: 8
   lakeNumber: 6
+  baseSize: 1
+  offsetWallBase: 10
   ressourcesAmounts: c8000000960000006400000032000000
   grid: {fileID: 874529961}
   ressources:
@@ -560,7 +562,8 @@ MonoBehaviour:
   - {fileID: 1311268382805703634, guid: b32e4ec76f4dc3148bcdfbcdf042effe, type: 3}
   - {fileID: 3510897046566884502, guid: a65688eeb1836b54d98c9884f1f12fd0, type: 3}
   terrain: {fileID: 2545525893388975610, guid: 661ec43eaeef2464b8c5eeef073895a0, type: 3}
-  startArea: {fileID: 0}
+  playerBase: {fileID: 1638028757459581144, guid: 0d892dea51f819d42873a9cadf6ba490,
+    type: 3}
   Spawner: []
   maxMountainSize: 8
   minMountainSize: 2
@@ -663,6 +666,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: -90, z: 0}
+--- !u!1001 &592340869
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1638028757459581144, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_Name
+      value: Player Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555648354268193499, guid: 0d892dea51f819d42873a9cadf6ba490,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0d892dea51f819d42873a9cadf6ba490, type: 3}
 --- !u!1 &670154482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,7 +2337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1814506072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2846,6 +2918,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923761690708270895, guid: 8abff42770cf15246a9a11e808111da6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1923761690708269266, guid: 8abff42770cf15246a9a11e808111da6,
         type: 3}

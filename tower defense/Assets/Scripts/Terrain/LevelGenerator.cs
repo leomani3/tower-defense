@@ -9,12 +9,14 @@ public class LevelGenerator : MonoBehaviour
     public int mapSize;
     public int mountainNumber;
     public int lakeNumber;
+    public int baseSize;
+    public int offsetWallBase;
     public int[] ressourcesAmounts;
     public Grid grid;
     public GameObject[] ressources;
     public GameObject[] obstacles;
     public GameObject terrain;
-    public GameObject startArea;
+    public GameObject playerBase;
     public GameObject[] Spawner;
     public int maxMountainSize;
     public int minMountainSize;
@@ -39,6 +41,7 @@ public class LevelGenerator : MonoBehaviour
         CreateMountain();
         CreateWater();
         CreateTerrain();
+        CreateBase();
         CreateRessources();
 
     }
@@ -144,9 +147,37 @@ public class LevelGenerator : MonoBehaviour
                 {
                     GameObject go = Instantiate(terrain);
                     go.transform.position = new Vector3(j + 0.5f, -0.5f, i + 0.5f);
-                    //gridCellOccupied[j + mapSize * i] = true;
                 }
             }
         }
+    }
+
+    public void CreateBase()
+    {
+        int posX = UnityEngine.Random.Range(0+offsetWallBase, mapSize-offsetWallBase);
+        int posZ = UnityEngine.Random.Range(0+offsetWallBase, mapSize-offsetWallBase); 
+        for (int i=-baseSize; i<=baseSize;i++)
+        {
+            for(int j=-baseSize; j<=baseSize;j++)
+            {
+                if(gridCellOccupied[posX+j + (posZ+i) * mapSize] == true)
+                {
+                    posX = UnityEngine.Random.Range(0+offsetWallBase, mapSize-offsetWallBase);;
+                    posZ = UnityEngine.Random.Range(0 + offsetWallBase, mapSize - offsetWallBase); ;
+                    i = -baseSize;
+                    j = -baseSize;
+                }
+            }
+
+        }
+        GameObject go = Instantiate(playerBase);
+        for (int i = -baseSize; i <= baseSize; i++)
+        {
+            for (int j = -baseSize; j <= baseSize; j++)
+            {
+                gridCellOccupied[posX + j + (posZ + i) * mapSize] = true;
+            }
+        }
+        go.transform.position = new Vector3(posX + 0.5f, 0, posZ + 0.5f);
     }
 }
