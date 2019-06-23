@@ -21,7 +21,7 @@ public class ColliderDOTNearest : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Unit>() != null && timeCount <= 0)
         {
-            other.gameObject.GetComponent<Unit>().health -= damage;
+            other.gameObject.GetComponent<Unit>().TakeDamage(damage);
             timeCount = timeBetweenDamage;
         }
     }

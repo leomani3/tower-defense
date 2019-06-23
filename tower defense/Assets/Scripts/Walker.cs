@@ -12,8 +12,6 @@ public class Walker : Zombie
     {
         CheckIfDie();
 
-        Debug.Log(nbEnemiesInSight);
-
         if (target != null)
         {
             navMeshAgent.SetDestination(target.transform.position);

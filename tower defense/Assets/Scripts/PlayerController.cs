@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
         float hAxis = Input.GetAxisRaw("Horizontal");
         float vAxis = Input.GetAxisRaw("Vertical");
 
-        Vector3 moveRight = Vector3.forward * hAxis * speed * Time.deltaTime;
-        Vector3 moveUp = -Vector3.right * vAxis * speed * Time.deltaTime;
+        Vector3 moveRight = Vector3.right * hAxis * speed * Time.deltaTime;
+        Vector3 moveUp = Vector3.forward * vAxis * speed * Time.deltaTime;
 
         rb.MovePosition(transform.position + moveRight + moveUp);
     }
