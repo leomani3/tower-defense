@@ -6,22 +6,40 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+
     public int mapSize;
+
+    // paramètres des obstacles inamovibles sur la carte
     public int mountainNumber;
     public int lakeNumber;
-    public int baseSize;
-    public int offsetWallBase;
-    public int[] ressourcesAmounts;
-    public Grid grid;
-    public GameObject[] ressources;
     public GameObject[] obstacles;
-    public GameObject terrain;
-    public GameObject playerBase;
-    public GameObject[] Spawner;
     public int maxMountainSize;
     public int minMountainSize;
     public int maxLakeSize;
     public int minLakeSize;
+
+    public GameObject terrain;
+
+    // paramètres de la base
+    // taille de la base (nb de tiles dans un sens en plus du centre. ex : batiment de la largeur 3 -> baseSize = 1, batiment de la largeur 7 -> baseSize = 3) 
+    public int baseSize;
+    public int offsetWallBase;
+    public GameObject playerBase;
+
+    public GameObject[] Spawner;
+
+    // paramètres des ressources
+    public GameObject[] ressources;
+    public int[] ressourcesAmounts;
+    public int[] minRessourcesPackSize;
+    //public int minWoodPackSize;
+    //public int minStonePackSize;
+    //public int minIronPackSize;
+    //public int minCopperPackSize;
+
+
+
+
     private bool[] gridCellOccupied;
 
     // Start is called before the first frame update
@@ -43,7 +61,6 @@ public class LevelGenerator : MonoBehaviour
         CreateTerrain();
         CreateBase();
         CreateRessources();
-
     }
 
 
@@ -115,28 +132,6 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private void CreateRessources()
-    {
-        for(int i = 0;i<ressources.Length;i++)
-        {
-            for(int j =0;j<ressourcesAmounts[i];j++)
-            {
-                int posX = UnityEngine.Random.Range(0, mapSize);
-                int posZ = UnityEngine.Random.Range(0, mapSize); ;
-                while (gridCellOccupied[posX + posZ * mapSize] == true)
-                {
-                    posX = UnityEngine.Random.Range(0, mapSize);
-                    posZ = UnityEngine.Random.Range(0, mapSize);
-                }
-
-                GameObject go = Instantiate(ressources[i]);
-                go.transform.position = new Vector3(posX + 0.5f, 0.5f, posZ  + 0.5f);
-                gridCellOccupied[posX + mapSize * posZ] = true;
-            }
-
-        }
-    }
-
     private void CreateTerrain()
     {
         for(int i =0;i<mapSize;i++)
@@ -148,6 +143,60 @@ public class LevelGenerator : MonoBehaviour
                     GameObject go = Instantiate(terrain);
                     go.transform.position = new Vector3(j + 0.5f, -0.5f, i + 0.5f);
                 }
+            }
+        }
+    }
+
+    private void CreateRessources()
+    {
+        for (int i = 0; i < ressources.Length; i++)
+        {
+            for (int j = 0; j < ressourcesAmounts[i]; j++)
+            {
+                //int posX = UnityEngine.Random.Range(0, mapSize);
+                //int posZ = UnityEngine.Random.Range(0, mapSize); ;
+                //while (gridCellOccupied[posX + posZ * mapSize] == true)
+                //{
+                //    posX = UnityEngine.Random.Range(0, mapSize);
+                //    posZ = UnityEngine.Random.Range(0, mapSize);
+                //}
+
+                //GameObject go = Instantiate(ressources[i]);
+                //go.transform.position = new Vector3(posX + 0.5f, 0.5f, posZ + 0.5f);
+                //gridCellOccupied[posX + mapSize * posZ] = true;
+
+                int posX = UnityEngine.Random.Range(0, mapSize);
+                int posZ = UnityEngine.Random.Range(0, mapSize);
+                for (int k = -minRessourcesPackSize[i]; k <= minRessourcesPackSize[i]; k++)
+                {
+                    for (int l = -minRessourcesPackSize[i]; l <= minRessourcesPackSize[i]; l++)
+                    {
+                        if (posX + l + mapSize * (posZ + k) < 0 || posX + l + (posZ + k) * mapSize >= mapSize * mapSize || gridCellOccupied[posX + l + (posZ + k) * mapSize] == true)
+                        {
+                            posX = UnityEngine.Random.Range(0, mapSize); ;
+                            posZ = UnityEngine.Random.Range(0, mapSize); ;
+                            k = -minRessourcesPackSize[i];
+                            l = -minRessourcesPackSize[i];
+                        }
+                    }
+                }
+
+                for (int k = -minRessourcesPackSize[i]; k < minRessourcesPackSize[i]; k++)
+                {
+                    for (int l = -minRessourcesPackSize[i]; l < minRessourcesPackSize[i]; l++)
+                    {
+                        if (posX + l + mapSize * (posZ + k) >= 0 && posX + l + (posZ + k) * mapSize < mapSize * mapSize && gridCellOccupied[posX + l + (posZ + k) * mapSize] == false)
+                        {
+                            if (UnityEngine.Random.Range(0, 2 * minRessourcesPackSize[i]) > Math.Max(Math.Abs(j), Math.Abs(k)))
+                            {
+                                GameObject go = Instantiate(ressources[i]);
+                                gridCellOccupied[posX + k + (posZ + l) * mapSize] = true;
+                                go.transform.position = new Vector3(posX + k + 0.5f, 0.5f, posZ + l + 0.5f);
+                            }
+                        }
+                    }
+                }
+
             }
         }
     }
@@ -168,8 +217,10 @@ public class LevelGenerator : MonoBehaviour
                     j = -baseSize;
                 }
             }
-
         }
+
+
+
         GameObject go = Instantiate(playerBase);
         for (int i = -baseSize; i <= baseSize; i++)
         {

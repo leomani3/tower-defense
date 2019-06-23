@@ -549,26 +549,26 @@ MonoBehaviour:
   mapSize: 100
   mountainNumber: 8
   lakeNumber: 6
+  obstacles:
+  - {fileID: 1311268382805703634, guid: b32e4ec76f4dc3148bcdfbcdf042effe, type: 3}
+  - {fileID: 3510897046566884502, guid: a65688eeb1836b54d98c9884f1f12fd0, type: 3}
+  maxMountainSize: 8
+  minMountainSize: 2
+  maxLakeSize: 10
+  minLakeSize: 4
+  terrain: {fileID: 2545525893388975610, guid: 661ec43eaeef2464b8c5eeef073895a0, type: 3}
   baseSize: 1
   offsetWallBase: 10
-  ressourcesAmounts: c8000000960000006400000032000000
-  grid: {fileID: 874529961}
+  playerBase: {fileID: 1638028757459581144, guid: 0d892dea51f819d42873a9cadf6ba490,
+    type: 3}
+  Spawner: []
   ressources:
   - {fileID: 5153990939243293786, guid: cdda46858e52c7841bec49620c6cf691, type: 3}
   - {fileID: 2040198680012597689, guid: 86ff45e5b21e408479c819c067fd5774, type: 3}
   - {fileID: 6084180223139558082, guid: f2a34c1ed7a2f0e4c8c0350cd40f04a3, type: 3}
   - {fileID: 3951171273867437345, guid: 96a6011e49fb8794bb8764f7169e2166, type: 3}
-  obstacles:
-  - {fileID: 1311268382805703634, guid: b32e4ec76f4dc3148bcdfbcdf042effe, type: 3}
-  - {fileID: 3510897046566884502, guid: a65688eeb1836b54d98c9884f1f12fd0, type: 3}
-  terrain: {fileID: 2545525893388975610, guid: 661ec43eaeef2464b8c5eeef073895a0, type: 3}
-  playerBase: {fileID: 1638028757459581144, guid: 0d892dea51f819d42873a9cadf6ba490,
-    type: 3}
-  Spawner: []
-  maxMountainSize: 8
-  minMountainSize: 2
-  maxLakeSize: 10
-  minLakeSize: 4
+  ressourcesAmounts: 1e00000019000000140000000f000000
+  minRessourcesPackSize: 06000000040000000300000002000000
 --- !u!4 &479159045
 Transform:
   m_ObjectHideFlags: 0
