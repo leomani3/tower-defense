@@ -25,7 +25,7 @@ public class ColliderDOTAOE : MonoBehaviour
         {
             foreach (GameObject go in targets)
             {
-                go.GetComponent<Unit>().health -= damage;
+                go.GetComponent<Unit>().TakeDamage(damage);
                 timeCount = timeBetweenDamage;
             }
         }

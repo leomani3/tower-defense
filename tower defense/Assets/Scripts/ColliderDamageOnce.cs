@@ -13,7 +13,7 @@ public class ColliderDamageOnce : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Unit>() != null)
         {
-            other.gameObject.GetComponent<Unit>().health -= damage;
+            other.gameObject.GetComponent<Unit>().TakeDamage(damage);
             Destroy(gameObject);
             //TODO : peut être remplacer le destroy par des disable de certains script afin de pouvoir jouer un son avant le destroy de l'objet
         }

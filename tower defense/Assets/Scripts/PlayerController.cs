@@ -36,22 +36,22 @@ public class PlayerController : MonoBehaviour
 
         transform.LookAt(new Vector3(transform.position.x+verticalAim, transform.position.y, transform.position.z+horizontalAim));
 
-        float hAxis = Input.GetAxisRaw(characterInputString + "move horizontal");
-        float vAxis = Input.GetAxisRaw(characterInputString + "move vertical");
+        float vAxis= Input.GetAxisRaw(characterInputString + "move horizontal");
+        float hAxis = Input.GetAxisRaw(characterInputString + "move vertical");
 
-        Vector3 moveRight = Vector3.forward * hAxis * speed * Time.deltaTime;
+        Vector3 moveRight = -Vector3.forward * hAxis * speed * Time.deltaTime;
         Vector3 moveUp = Vector3.right * vAxis * speed * Time.deltaTime;
 
         rb.MovePosition(transform.position + moveRight + moveUp);
 
         //---------------------------------------------------
 
-        //float hoAxis = Input.GetAxisRaw("Horizontal");
-        //float veAxis = Input.GetAxisRaw("Vertical");
+        float veAxis = Input.GetAxisRaw("Horizontal");
+        float hoAxis = Input.GetAxisRaw("Vertical");
 
-        //moveRight = Vector3.forward * hoAxis * speed * Time.deltaTime;
-        //moveUp = -Vector3.right * veAxis * speed * Time.deltaTime;
+        moveRight =Vector3.forward * hoAxis * speed * Time.deltaTime;
+        moveUp = Vector3.right * veAxis * speed * Time.deltaTime;
 
-        //rb.MovePosition(transform.position + moveRight + moveUp);
+        rb.MovePosition(transform.position + moveRight + moveUp);
     }
 }

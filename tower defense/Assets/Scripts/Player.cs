@@ -13,5 +13,11 @@ public class Player : Unit
     void Update()
     {
         CheckIfDie();
+        UpdateHUDRotation();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            TakeDamage(1);
+        }
     }
 }
