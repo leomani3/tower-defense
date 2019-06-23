@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : Unit
 {
-    public float speed = 20f;
     // Start is called before the first frame update
     void Start()
     {
