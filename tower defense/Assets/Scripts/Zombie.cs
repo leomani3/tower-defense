@@ -8,7 +8,6 @@ public class Zombie : Unit
     //-------VARIABLES-------
     public float speed = 3.5f;  //vitesse de déplacement
     public float sightDistance = 1f;    //distance de vision
-    public float distanceAttack = 3f;   //distance d'attaque
 
     protected GameObject target = null;   //Correspond au player ou batiment que le zombie vise s'il y en a un à portée "sightdistance"
     protected int nbEnemiesInSight = 0;
@@ -16,8 +15,6 @@ public class Zombie : Unit
     //---------COMPONENTS---------
     protected NavMeshAgent navMeshAgent;
     protected SphereCollider sphereCollider;
-    protected float timeBetweenAttacks;
-    protected float timeCount=0;
     private Transform playerBase;
 
 
@@ -35,21 +32,9 @@ public class Zombie : Unit
         navMeshAgent.speed = speed;
 
         //On set le premier waypoint
-        playerBase = GameObject.Find("Player Base").transform;
-    }
-
-    /// <summary>
-    /// Regarde si "target" est assez proche pour être tapée
-    /// </summary>
-    protected bool CheckDistanceAttack()
-    {
-        if (Vector3.Distance(transform.position, target.transform.position) < distanceAttack)
+        if (GameObject.Find("Player Base") != null)
         {
-            return true;
-        }
-        else
-        {
-            return false;
+            playerBase = GameObject.Find("Player Base").transform;
         }
     }
 
@@ -58,7 +43,7 @@ public class Zombie : Unit
     /// </summary>
     protected void Move()
     {
-        //Déplacement vers la base enemy
+        //Déplacement vers la base enemie
         if(playerBase != null)
         {
             navMeshAgent.SetDestination(playerBase.position);
@@ -67,16 +52,15 @@ public class Zombie : Unit
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Unit>() != null)
+        if (other.gameObject.GetComponent<Unit>() != null && other.tag != "Base")
         {
             nbEnemiesInSight++;
-            Debug.Log("LBLBL");
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<Unit>() != null)
+        if (other.gameObject.GetComponent<Unit>() != null && other.tag != "Base")
         {
             nbEnemiesInSight--;
             if (nbEnemiesInSight == 0)
@@ -88,7 +72,7 @@ public class Zombie : Unit
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<Unit>() != null)
+        if (other.gameObject.GetComponent<Unit>() != null && other.tag != "Base")
         {
             if (target == null)
             {
@@ -100,12 +84,4 @@ public class Zombie : Unit
             }
         }
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = new Color(1, 0, 0, 0.5f);
-        Gizmos.DrawSphere(transform.position, distanceAttack);
-    }
-
-   
 }
