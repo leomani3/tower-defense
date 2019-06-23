@@ -543,30 +543,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 479159043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aafea9ccf385c2d4887fc9c1f2959ab0, type: 3}
+  m_Script: {fileID: 11500000, guid: 25bd82d22edcfae44a97d4e185d20a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mapSize: 100
-  mountainNumber: 10
-  lakeNumber: 12
+  mountainNumber: 8
+  lakeNumber: 6
   ressourcesAmounts: c8000000960000006400000032000000
   grid: {fileID: 874529961}
   ressources:
-  - {fileID: 5153990939243293786, guid: f9b074ec334b02e4d91f28e15bc3a2e4, type: 3}
-  - {fileID: 2040198680012597689, guid: 1a6b952b6c53ab04db4c34ba78b2080e, type: 3}
-  - {fileID: 6084180223139558082, guid: 60858fac9e6b4764c8389ae7c2f9cd52, type: 3}
-  - {fileID: 3951171273867437345, guid: c6e471a42582d8542842f128a1b42aa4, type: 3}
+  - {fileID: 5153990939243293786, guid: cdda46858e52c7841bec49620c6cf691, type: 3}
+  - {fileID: 2040198680012597689, guid: 86ff45e5b21e408479c819c067fd5774, type: 3}
+  - {fileID: 6084180223139558082, guid: f2a34c1ed7a2f0e4c8c0350cd40f04a3, type: 3}
+  - {fileID: 3951171273867437345, guid: 96a6011e49fb8794bb8764f7169e2166, type: 3}
   obstacles:
-  - {fileID: 1311268382805703634, guid: 2521c1e309f07a943a0bae9c049c3093, type: 3}
-  - {fileID: 3510897046566884502, guid: 6eb3a62f75ce6c94a92febd93a92fbee, type: 3}
-  terrain: {fileID: 2545525893388975610, guid: 2d680dcf9e7fb654bb150b07903aefbc, type: 3}
+  - {fileID: 1311268382805703634, guid: b32e4ec76f4dc3148bcdfbcdf042effe, type: 3}
+  - {fileID: 3510897046566884502, guid: a65688eeb1836b54d98c9884f1f12fd0, type: 3}
+  terrain: {fileID: 2545525893388975610, guid: 661ec43eaeef2464b8c5eeef073895a0, type: 3}
   startArea: {fileID: 0}
   Spawner: []
   maxMountainSize: 8
   minMountainSize: 2
-  maxLakeSize: 7
-  minLakeSize: 2
-  gridCellOccupied: []
+  maxLakeSize: 10
+  minLakeSize: 4
 --- !u!4 &479159045
 Transform:
   m_ObjectHideFlags: 0
