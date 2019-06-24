@@ -61,11 +61,11 @@ public class CharacterSelect : MonoBehaviour
         else if( step == Step.CharSelect)
         {
 
-            if(Input.GetAxisRaw(characterInputString + "move horizontal")<-0.15)
+            if(Input.GetButtonDown(characterInputString + "leftButton"))
             {
                 buttonLeft.onClick.Invoke();
             }
-            if (Input.GetAxisRaw(characterInputString + "move horizontal") > 0.15)
+            if (Input.GetButtonDown(characterInputString+"rightButton"))
             {
                 buttonRight.onClick.Invoke();
             }

@@ -415,7 +415,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100412875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a485559b5780dd4aaefb71912f01f1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5174c68748735fb45a61626dbca1a984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CSM: {fileID: 1655356513}
@@ -1241,7 +1241,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &548502289
@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 548502286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce0b0569c409f643ab1f048af553e2e, type: 3}
+  m_Script: {fileID: 11500000, guid: d0f3335394f04f440aada9bdbd1dbc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
@@ -1617,7 +1617,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 771235567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a485559b5780dd4aaefb71912f01f1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5174c68748735fb45a61626dbca1a984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CSM: {fileID: 1655356513}
@@ -2103,7 +2103,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &961080110
@@ -2115,7 +2115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 961080107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce0b0569c409f643ab1f048af553e2e, type: 3}
+  m_Script: {fileID: 11500000, guid: d0f3335394f04f440aada9bdbd1dbc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
@@ -2452,7 +2452,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1057875549
@@ -2464,7 +2464,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1057875546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce0b0569c409f643ab1f048af553e2e, type: 3}
+  m_Script: {fileID: 11500000, guid: d0f3335394f04f440aada9bdbd1dbc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
@@ -2793,7 +2793,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1114437072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a485559b5780dd4aaefb71912f01f1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5174c68748735fb45a61626dbca1a984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CSM: {fileID: 1655356513}
@@ -2994,15 +2994,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1205635536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e653b13a398fbac47b85569b67e00077, type: 3}
+  m_Script: {fileID: 11500000, guid: c5958f7c7450bbe4681afc4305f886e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panelJoin: {fileID: 1782512692}
   panelCharSelect: {fileID: 249069763}
   panelBackGround: {fileID: 1205635536}
-  panelBackGroundImage: {fileID: 0}
+  panelBackGroundImage: {fileID: 1205635538}
   playerNumber: 3
-  CharSelectTerrain: {fileID: 1031802230}
+  CharSelectTerrain: {fileID: 717645482}
   charSpawn: {fileID: 1057875549}
   characterIndex: 0
   characterImage: {fileID: 991518441}
@@ -3091,7 +3091,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1267104083
@@ -3103,7 +3103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1267104080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce0b0569c409f643ab1f048af553e2e, type: 3}
+  m_Script: {fileID: 11500000, guid: d0f3335394f04f440aada9bdbd1dbc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
@@ -3841,7 +3841,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1483240466}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a485559b5780dd4aaefb71912f01f1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5174c68748735fb45a61626dbca1a984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CSM: {fileID: 1655356513}
@@ -4092,16 +4092,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1532624442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e653b13a398fbac47b85569b67e00077, type: 3}
+  m_Script: {fileID: 11500000, guid: c5958f7c7450bbe4681afc4305f886e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panelJoin: {fileID: 789185396}
   panelCharSelect: {fileID: 792886572}
   panelBackGround: {fileID: 1532624442}
-  panelBackGroundImage: {fileID: 0}
+  panelBackGroundImage: {fileID: 1532624444}
   playerNumber: 1
-  CharSelectTerrain: {fileID: 1638028757459581144, guid: 0d892dea51f819d42873a9cadf6ba490,
-    type: 3}
+  CharSelectTerrain: {fileID: 1118793533}
   charSpawn: {fileID: 1267104083}
   characterIndex: 0
   characterImage: {fileID: 1948947084}
@@ -4212,7 +4211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1655356512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f3ca249f948144b8ba1de307442b61, type: 3}
+  m_Script: {fileID: 11500000, guid: c4812628893624a4694c4af87c3a4e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterSelects:
@@ -4226,9 +4225,9 @@ MonoBehaviour:
   - {fileID: 3585796351819520304, guid: b5b8f12eb05f4774799f04b979813e92, type: 3}
   - {fileID: 3585796351819520304, guid: b5b8f12eb05f4774799f04b979813e92, type: 3}
   characterImageList:
-  - {fileID: 21300000, guid: d798af0d0fc9c0d429210ae06d083ac7, type: 3}
-  - {fileID: 21300000, guid: 130249e36dc979d4f9683e234125a310, type: 3}
-  - {fileID: 21300000, guid: cc118407147f5e84a8b902b9e48a26dd, type: 3}
+  - {fileID: 21300000, guid: 59f3e370877484c43838725336baa6e5, type: 3}
+  - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   characterIndexes: 
   readyToStart: 0
   requiredPlayers: 0
@@ -4788,15 +4787,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1826370573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e653b13a398fbac47b85569b67e00077, type: 3}
+  m_Script: {fileID: 11500000, guid: c5958f7c7450bbe4681afc4305f886e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panelJoin: {fileID: 1661794459}
   panelCharSelect: {fileID: 2067026297}
   panelBackGround: {fileID: 1826370573}
-  panelBackGroundImage: {fileID: 0}
+  panelBackGroundImage: {fileID: 1826370575}
   playerNumber: 2
-  CharSelectTerrain: {fileID: 1723568248}
+  CharSelectTerrain: {fileID: 1353453443}
   charSpawn: {fileID: 961080110}
   characterIndex: 0
   characterImage: {fileID: 1635471741}
@@ -4969,15 +4968,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1941312908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e653b13a398fbac47b85569b67e00077, type: 3}
+  m_Script: {fileID: 11500000, guid: c5958f7c7450bbe4681afc4305f886e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panelJoin: {fileID: 123820985}
   panelCharSelect: {fileID: 1669372876}
   panelBackGround: {fileID: 1941312908}
-  panelBackGroundImage: {fileID: 0}
+  panelBackGroundImage: {fileID: 1941312910}
   playerNumber: 4
-  CharSelectTerrain: {fileID: 1337214162}
+  CharSelectTerrain: {fileID: 585566906}
   charSpawn: {fileID: 548502289}
   characterIndex: 0
   characterImage: {fileID: 1694788491}
@@ -5204,7 +5203,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1968121248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a485559b5780dd4aaefb71912f01f1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5174c68748735fb45a61626dbca1a984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CSM: {fileID: 1655356513}
@@ -5354,7 +5353,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2020814870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a485559b5780dd4aaefb71912f01f1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5174c68748735fb45a61626dbca1a984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CSM: {fileID: 1655356513}
@@ -5676,7 +5675,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2070507685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a485559b5780dd4aaefb71912f01f1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5174c68748735fb45a61626dbca1a984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CSM: {fileID: 1655356513}
@@ -5905,7 +5904,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2088415506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a485559b5780dd4aaefb71912f01f1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5174c68748735fb45a61626dbca1a984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CSM: {fileID: 1655356513}
