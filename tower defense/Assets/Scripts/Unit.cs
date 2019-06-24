@@ -10,7 +10,7 @@ public class Unit : MonoBehaviour
 
     protected void Update()
     {
-        CheckIfDie();
+        CheckIfDie(); // nécessaire?
         UpdateHUDRotation();
     }
 
