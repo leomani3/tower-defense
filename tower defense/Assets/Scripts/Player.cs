@@ -44,4 +44,14 @@ public class Player : Unit
             modeImage.color = new Color(1, 0, 0, 1);
         }
     }
+
+    public void Attack()
+    {
+
+    }
+
+    public void Construct()
+    {
+
+    }
 }

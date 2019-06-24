@@ -19,39 +19,38 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //SOURIS : LE PLAYER REGARDE EN DIRECTION DE LA SOURIS
+        //--------------------LOOKAT--------------------
+        //clavier / souris
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
         }
-        //---------------------------------------------------
 
-
-        //MANETTE : LE PLAYER REGARDE EN DIRECTION DE LA SOURIS
-
+        //manette
         float horizontalAim = Input.GetAxisRaw(characterInputString + "aim horizontal");
         float verticalAim = Input.GetAxisRaw(characterInputString + "aim vertical");
 
-        transform.LookAt(new Vector3(transform.position.x+verticalAim, transform.position.y, transform.position.z+horizontalAim));
+        transform.LookAt(new Vector3(transform.position.x + verticalAim, transform.position.y, transform.position.z + horizontalAim));
 
-        float vAxis= Input.GetAxisRaw(characterInputString + "move horizontal");
+
+        //--------------------LOOKAT--------------------
+        //manette
+        float vAxis = Input.GetAxisRaw(characterInputString + "move horizontal");
         float hAxis = Input.GetAxisRaw(characterInputString + "move vertical");
 
-        Vector3 moveRight = -Vector3.forward * hAxis * speed * Time.deltaTime;
-        Vector3 moveUp = Vector3.right * vAxis * speed * Time.deltaTime;
+        Vector3 moveRightController = -Vector3.forward * hAxis * speed * Time.deltaTime;
+        Vector3 moveUpController = Vector3.right * vAxis * speed * Time.deltaTime;
 
-        rb.MovePosition(transform.position + moveRight + moveUp);
-
-        //---------------------------------------------------
-
+        //clavier / souris
         float veAxis = Input.GetAxisRaw("Horizontal");
         float hoAxis = Input.GetAxisRaw("Vertical");
 
-        moveRight =Vector3.forward * hoAxis * speed * Time.deltaTime;
-        moveUp = Vector3.right * veAxis * speed * Time.deltaTime;
+        Vector3 moveRightKeyboard =Vector3.forward * hoAxis * speed * Time.deltaTime;
+        Vector3 moveUpKeyboard = Vector3.right * veAxis * speed * Time.deltaTime;
 
-        rb.MovePosition(transform.position + moveRight + moveUp);
+        //On appelle une seule fois MovePosition pour les deux modes de controles car elle ne peut être appeler qu'une seule fois. Si on l'appele plusieurs fois, seule la dernière est prise en compte
+        rb.MovePosition(transform.position + moveRightController + moveRightKeyboard + moveUpController + moveUpKeyboard);
     }
 }
