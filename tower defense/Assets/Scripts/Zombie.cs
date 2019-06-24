@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
 
 
 //cette classe est la classe parente de tout les enemies
@@ -13,7 +12,7 @@ public class Zombie : Unit
     protected int nbEnemiesInSight = 0;
 
     //---------COMPONENTS---------
-    protected NavMeshAgent navMeshAgent;
+    protected UnityEngine.AI.NavMeshAgent navMeshAgent;
     protected SphereCollider sphereCollider;
     private Transform playerBase;
 
@@ -33,7 +32,7 @@ public class Zombie : Unit
         sphereCollider.radius = sightDistance;
 
         //On change la vitesse du NavMeshAgent en fonction de la valeur de "speed"
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         navMeshAgent.speed = speed;
 
         //On set le premier waypoint
