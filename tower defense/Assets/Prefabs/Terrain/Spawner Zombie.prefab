@@ -40,7 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6547559874432814786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f606361facb1db84d8a7457fe05be760, type: 3}
+  m_Script: {fileID: 11500000, guid: e0b2f266459eb6b44aeb63cbf5cbbbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GOToSpawn: {fileID: 1923761690708270895, guid: 8abff42770cf15246a9a11e808111da6,
@@ -48,4 +48,4 @@ MonoBehaviour:
   maxSpawnPositionOffset: 2
   initialSpawnTimer: 10
   spawnTimer: 0
-  maxTimerOffset: 3
+  maxTimerOffset: 2

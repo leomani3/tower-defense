@@ -875,6 +875,10 @@ MonoBehaviour:
   zombiesInRange: []
   cooldown: 0
   reloadTime: 5
+  costWood: 100
+  costStone: 50
+  costIron: 50
+  costCopper: 0
   cannon: {fileID: 4248497843295453686}
   pedestal: {fileID: 4974295031891387826}
   cannonball: {fileID: 6036468614912133536, guid: 6bfba34d1a7979040b0dc3045bb3eeb7,

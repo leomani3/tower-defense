@@ -25,7 +25,7 @@ public class LevelGenerator : MonoBehaviour
     public int baseSize;
     public int offsetWallBase;
     public GameObject playerBase;
-
+    public Vector3 basePosition;
     public GameObject[] Spawner;
 
     // paramètres des ressources
@@ -38,7 +38,7 @@ public class LevelGenerator : MonoBehaviour
     public int zombieSpawnerAmount;
     int zombieSpawnerOffset;
 
-
+    public GameObject[] playerList;
 
 
     private bool[] gridCellOccupied;
@@ -52,6 +52,7 @@ public class LevelGenerator : MonoBehaviour
         {
             gridCellOccupied[i] = false;
         }
+        baseSize++;
         CreateMap();
     }
 
@@ -63,6 +64,7 @@ public class LevelGenerator : MonoBehaviour
         CreateBase();
         CreateRessources();
         CreateZombieSpawners();
+        SpawnPlayers();
     }
 
     public void CreateMountain()
@@ -231,7 +233,8 @@ public class LevelGenerator : MonoBehaviour
             }
         }
         go.transform.position = new Vector3(posX + 0.5f, 0, posZ + 0.5f);
-        Debug.Log(go.transform.position);
+        basePosition=go.transform.position;
+        playerBase = go;
     }
 
 
@@ -264,6 +267,15 @@ public class LevelGenerator : MonoBehaviour
             }
             GameObject go = Instantiate(zombieSpawner);
             go.transform.position = new Vector3(posX + 0.5f, 0, posZ + 0.5f);
+        }
+    }
+
+    public void SpawnPlayers()
+    {
+        for(int i=0;i< playerList.Length;i++)
+        {
+            GameObject go =Instantiate(playerList[i]);
+            go.transform.position = basePosition +  new Vector3(baseSize, 2, 3*((playerList.Length-1)/2-i));
         }
     }
 }

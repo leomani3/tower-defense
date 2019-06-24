@@ -9,6 +9,10 @@ public abstract class BaseTurret : Unit
     public List<GameObject> zombiesInRange;
     public float cooldown;
     public float reloadTime;
+    public int costWood;
+    public int costStone;
+    public int costIron;
+    public int costCopper;
 
     // Start is called before the first frame update
     void Start()
