@@ -1529,9 +1529,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1528886345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7901be4ce19d2744a8c67b72fde4b233, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ababb4f64f74e84b9eee498d9f35053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPanel: {fileID: 1072043608}
+  panelToDisplay: {fileID: 1285436890}
 --- !u!114 &1528886348
 MonoBehaviour:
   m_ObjectHideFlags: 0

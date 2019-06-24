@@ -33,10 +33,10 @@ public class LevelGenerator : MonoBehaviour
     public int[] ressourcesAmounts;
     public int[] minRessourcesPackSize;
     public float ressourcePackDensity;
-    //public int minWoodPackSize;
-    //public int minStonePackSize;
-    //public int minIronPackSize;
-    //public int minCopperPackSize;
+
+    public GameObject zombieSpawner;
+    public int zombieSpawnerAmount;
+    int zombieSpawnerOffset;
 
 
 
@@ -47,12 +47,12 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         gridCellOccupied = new bool[mapSize * mapSize];
-        for(int i=0;i< mapSize*mapSize;i++)
+        zombieSpawnerOffset = zombieSpawner.GetComponent<Spawner>().maxSpawnPositionOffset;
+        for (int i=0;i< mapSize*mapSize;i++)
         {
             gridCellOccupied[i] = false;
         }
         CreateMap();
-
     }
 
     public void CreateMap()
@@ -62,9 +62,8 @@ public class LevelGenerator : MonoBehaviour
         CreateTerrain();
         CreateBase();
         CreateRessources();
+        CreateZombieSpawners();
     }
-
-
 
     public void CreateMountain()
     {
@@ -223,6 +222,7 @@ public class LevelGenerator : MonoBehaviour
 
 
         GameObject go = Instantiate(playerBase);
+
         for (int i = -baseSize; i <= baseSize; i++)
         {
             for (int j = -baseSize; j <= baseSize; j++)
@@ -231,5 +231,39 @@ public class LevelGenerator : MonoBehaviour
             }
         }
         go.transform.position = new Vector3(posX + 0.5f, 0, posZ + 0.5f);
+        Debug.Log(go.transform.position);
+    }
+
+
+    private void CreateZombieSpawners()
+    {
+        for(int i = 0; i<zombieSpawnerAmount;i++)
+        {
+            int posX = UnityEngine.Random.Range(0 , mapSize);
+            int posZ = UnityEngine.Random.Range(0 , mapSize);
+            for (int j = -zombieSpawnerOffset; j <= zombieSpawnerOffset; j++)
+            {
+                for (int k = -zombieSpawnerOffset; k <= zombieSpawnerOffset; k++)
+                {
+                    if (posX + k + mapSize * (posZ + j) < 0 || posX + k + (posZ + j) * mapSize >= mapSize * mapSize || gridCellOccupied[posX + k + (posZ + j) * mapSize] == true)
+                    {
+                        posX = UnityEngine.Random.Range(0 , mapSize ); ;
+                        posZ = UnityEngine.Random.Range(0 , mapSize ); ;
+                        j = -zombieSpawnerOffset;
+                        k = -zombieSpawnerOffset;
+                    }
+                }
+            }
+
+            for (int j = -baseSize; j <= baseSize; j++)
+            {
+                for (int k = -baseSize; k <= baseSize; k++)
+                {
+                    gridCellOccupied[posX + k + (posZ + j) * mapSize] = true;
+                }
+            }
+            GameObject go = Instantiate(zombieSpawner);
+            go.transform.position = new Vector3(posX + 0.5f, 0, posZ + 0.5f);
+        }
     }
 }
