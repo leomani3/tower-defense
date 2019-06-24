@@ -70,25 +70,25 @@ public class Base : Unit
 
     //------------- GETTERS / SETTERS -------------
 
-    public int IronAmount
+    public static int IronAmount
     {
         get{return ironAmount;}
         set { ironAmount = value;}
     }
 
-    public int CopperAmount
+    public static int CopperAmount
     {
         get { return copperAmount; }
         set { copperAmount = value; }
     }
 
-    public int WoodAmount
+    public static int WoodAmount
     {
         get { return woodAmount; }
         set { woodAmount = value; }
     }
 
-    public int StoneAmount
+    public static int StoneAmount
     {
         get { return stoneAmount; }
         set { stoneAmount = value; }

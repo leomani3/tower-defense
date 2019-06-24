@@ -846,7 +846,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9139816520200165024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 41, y: 2, z: 16}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 7240448437271043293}
@@ -871,14 +871,14 @@ MonoBehaviour:
   maxHealth: 15
   healthBar: {fileID: 2346498204077904230}
   HUD: {fileID: 765705764037553150}
+  costWood: 0
+  costStone: 0
+  costIron: 0
+  costCopper: 0
   target: {fileID: 0}
   zombiesInRange: []
   cooldown: 0
   reloadTime: 5
-  costWood: 100
-  costStone: 50
-  costIron: 50
-  costCopper: 0
   cannon: {fileID: 4248497843295453686}
   pedestal: {fileID: 4974295031891387826}
   cannonball: {fileID: 6036468614912133536, guid: 6bfba34d1a7979040b0dc3045bb3eeb7,

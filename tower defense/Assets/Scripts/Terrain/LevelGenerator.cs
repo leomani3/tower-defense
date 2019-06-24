@@ -26,7 +26,6 @@ public class LevelGenerator : MonoBehaviour
     public int offsetWallBase;
     public GameObject playerBase;
     public Vector3 basePosition;
-    public GameObject[] Spawner;
 
     // paramètres des ressources
     public GameObject[] ressources;
@@ -40,8 +39,7 @@ public class LevelGenerator : MonoBehaviour
 
     public GameObject[] playerList;
 
-
-    private bool[] gridCellOccupied;
+    public bool[] gridCellOccupied;
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +73,7 @@ public class LevelGenerator : MonoBehaviour
         {
             int posX = UnityEngine.Random.Range(0, mapSize);
             int posZ = UnityEngine.Random.Range(0, mapSize); ;
-            while (gridCellOccupied[posX + posZ * mapSize] == true)
+            while (posX + mapSize * posZ < 0 || posX +posZ* mapSize >= mapSize * mapSize || gridCellOccupied[posX + posZ * mapSize] == true)
             {
                 posX = UnityEngine.Random.Range(0, mapSize);
                 posZ = UnityEngine.Random.Range(0, mapSize);
@@ -109,7 +107,7 @@ public class LevelGenerator : MonoBehaviour
         {
             int posX = UnityEngine.Random.Range(0, mapSize);
             int posZ = UnityEngine.Random.Range(0, mapSize); ;
-            while (gridCellOccupied[posX + posZ * mapSize] == true)
+            while (posX + mapSize * posZ < 0 || posX + posZ * mapSize >= mapSize * mapSize || gridCellOccupied[posX + posZ * mapSize] == true)
             {
                 posX = UnityEngine.Random.Range(0, mapSize);
                 posZ = UnityEngine.Random.Range(0, mapSize);
