@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     public string characterInputString;
 
     private Rigidbody rb;
+    private Player playerScript;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         characterInputString = "character " + playerNumber + " ";
+        playerScript = GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class PlayerController : MonoBehaviour
         transform.LookAt(new Vector3(transform.position.x + verticalAim, transform.position.y, transform.position.z + horizontalAim));
 
 
-        //--------------------LOOKAT--------------------
+        //--------------------MOUVEMENT--------------------
         //manette
         float vAxis = Input.GetAxisRaw(characterInputString + "move horizontal");
         float hAxis = Input.GetAxisRaw(characterInputString + "move vertical");
@@ -52,5 +54,27 @@ public class PlayerController : MonoBehaviour
 
         //On appelle une seule fois MovePosition pour les deux modes de controles car elle ne peut être appeler qu'une seule fois. Si on l'appele plusieurs fois, seule la dernière est prise en compte
         rb.MovePosition(transform.position + moveRightController + moveRightKeyboard + moveUpController + moveUpKeyboard);
+
+        //--------------------BOUTON CHANGE MODE--------------------
+        //Manette
+        //clavier / souris
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            playerScript.ChangeMode();
+        }
+
+
+        //--------------------BOUTON ACTION--------------------
+        //Manette
+        //clavier / souris
+        if (Input.GetMouseButtonDown(0)){
+            if(playerScript.Mode == 1) //mode action
+            {
+                playerScript.Attack();
+            }
+            else if(playerScript.Mode == 2){ //mode construction
+                playerScript.Construct();
+            }
+        }
     }
 }

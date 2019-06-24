@@ -4,13 +4,19 @@ using UnityEngine;
 public class Player : Unit
 {
     public Image modeImage;
+    public Image energyBar;
+    public float maxEnergy = 100f;
+    public float attackEnergyCost = 20f;
+    public float energyRegenSpeed = 30f;
     
+    private float currentEnergy;
     private int mode = 1; //1: action 2: construction
 
     // Start is called before the first frame update
     void Start()
     {
         modeImage.color = new Color(1, 0, 0, 1);
+        currentEnergy = maxEnergy;
     }
 
     // Update is called once per frame
@@ -18,10 +24,7 @@ public class Player : Unit
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            ChangeMode();
-        }
+        UpdateEnergy();
 
         if (Input.GetKeyDown(KeyCode.Delete))
         {
@@ -47,11 +50,42 @@ public class Player : Unit
 
     public void Attack()
     {
-
+        if(currentEnergy > attackEnergyCost)
+        {
+            Debug.Log("ATTACK");
+            currentEnergy -= attackEnergyCost;
+        }
+        else
+        {
+            Debug.Log("PAS ASSEZ D'ÉNERGIE POUR ATTAQUER");
+        }
     }
 
     public void Construct()
     {
+        if (currentEnergy == maxEnergy)
+        {
+            Debug.Log("CONSTRUCT");
+            currentEnergy -= maxEnergy;
+        }
+        else
+        {
+            Debug.Log("PAS ASSEZ D'ÉNERGIE POUR CONSTRUIRE");
+        }
+    }
 
+    public int Mode
+    {
+        get { return mode; }
+    }
+
+    void UpdateEnergy()
+    {
+        currentEnergy += Time.deltaTime * energyRegenSpeed;
+        if (currentEnergy >= maxEnergy)
+        {
+            currentEnergy = maxEnergy;
+        }
+        energyBar.fillAmount = currentEnergy / maxEnergy;
     }
 }
