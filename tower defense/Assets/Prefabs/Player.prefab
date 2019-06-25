@@ -664,11 +664,10 @@ MonoBehaviour:
   maxHealth: 10
   healthBar: {fileID: 1017647611}
   HUD: {fileID: 1910731815}
-  modeImage: {fileID: 721170229}
-  energyBar: {fileID: 2069555682}
   maxEnergy: 100
   attackEnergyCost: 30
   energyRegenSpeed: 30
+  playerNumber: 1
   construct: {fileID: 4689519313551599972}
 --- !u!114 &4229984021048401432
 MonoBehaviour:
@@ -683,7 +682,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  playerNumber: 1
   characterInputString: 
 --- !u!54 &560470210
 Rigidbody:
