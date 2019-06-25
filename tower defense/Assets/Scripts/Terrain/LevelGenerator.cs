@@ -273,7 +273,7 @@ public class LevelGenerator : MonoBehaviour
         for(int i=0;i< playerList.Length;i++)
         {
             GameObject go =Instantiate(playerList[i]);
-            go.transform.position = basePosition +  new Vector3(baseSize, 2, 3*((playerList.Length-1)/2-i));
+            go.transform.position = basePosition +  new Vector3(baseSize, 1, 3*((playerList.Length-1)/2-i));
         }
     }
 }

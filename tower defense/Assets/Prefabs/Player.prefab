@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3398072776070179033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.562}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3585796351819520308}
   m_RootOrder: 1
@@ -76,7 +76,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3398072776070179033}
-  m_Mesh: {fileID: 8691780276856062721, guid: 0aa4ef9828831dd4b89052cf31d2158f, type: 3}
+  m_Mesh: {fileID: -7387706064836869012, guid: fe4d6b48617139a4187f7127dba3c6be, type: 3}
 --- !u!1 &3585796351819520304
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +195,7 @@ MonoBehaviour:
   maxEnergy: 100
   attackEnergyCost: 30
   energyRegenSpeed: 30
+  construct: {fileID: 4689519313551599972}
 --- !u!114 &4229984021048401432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,8 +240,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3585796351819520304}
-  itemToConstruct: {fileID: 9139816520200165024, guid: 69a0565d2a3f1214bbf530c62f5d2e29,
-    type: 3}
+  indexItemToConstruct: 0
+  CantBePlaced: {fileID: 2100000, guid: 738e7deed1575d94199ba77e35de2aeb, type: 2}
+  CanBePlaced: {fileID: 2100000, guid: 8b1f593cb2a5f434b91d15154618f7ba, type: 2}
+  constructableItems:
+  - {fileID: 9139816520200165024, guid: 69a0565d2a3f1214bbf530c62f5d2e29, type: 3}
+  constructableItemsPlaceHolders:
+  - {fileID: -8194498794760075765, guid: fe4d6b48617139a4187f7127dba3c6be, type: 3}
   placeHolderItem: {fileID: 3398072776070179033}
   levelGenerator: {fileID: 0}
 --- !u!1 &5249084135168344541

@@ -32,12 +32,25 @@ public class CannonBall : Ammunition
 
     private void OnCollisionEnter(Collision other)
     {
+
         if (other.gameObject.tag == "Zombie" || other.gameObject.tag=="Ground")
         {
-            foreach(GameObject go in targets)
+            List<int> targetsToRemove = new List<int>();
+            for(int i=0;i<targets.Count;i++)
             {
-                go.GetComponent<Zombie>().TakeDamage(damage);
+                if(targets[i]!=null)
+                {
+                    targets[i].GetComponent<Zombie>().TakeDamage(damage);
+                }
+                //else
+                //{
+                //    targetsToRemove.Add(i);
+                //}
             }
+            //foreach (int i in targetsToRemove)
+            //{
+            //    targets.Remove(targets[i]);
+            //}
             Destroy(gameObject);
         }
     }
