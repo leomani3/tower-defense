@@ -832,7 +832,7 @@ GameObject:
   - component: {fileID: 103458628667139066}
   - component: {fileID: 200659744390934303}
   m_Layer: 0
-  m_Name: cannon_turret
+  m_Name: CannonTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -879,6 +879,7 @@ MonoBehaviour:
   zombiesInRange: []
   cooldown: 0
   reloadTime: 5
+  damage: 3
   cannon: {fileID: 4248497843295453686}
   pedestal: {fileID: 4974295031891387826}
   cannonball: {fileID: 6036468614912133536, guid: 6bfba34d1a7979040b0dc3045bb3eeb7,

@@ -6,7 +6,6 @@ public class CannonBall : Ammunition
 {
 
     public List<GameObject> targets;
-    public int damage;
     // Start is called before the first frame update
     new void Start()
     {

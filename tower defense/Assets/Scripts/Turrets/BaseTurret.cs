@@ -9,6 +9,7 @@ public abstract class BaseTurret : BaseBuilding
     public List<GameObject> zombiesInRange;
     public float cooldown;
     public float reloadTime;
+    public int damage;
 
 
     // Start is called before the first frame update
@@ -27,7 +28,6 @@ public abstract class BaseTurret : BaseBuilding
             Attack();
         }
         cooldown -= Time.deltaTime;
-
     }
 
     private void OnTriggerEnter(Collider other)

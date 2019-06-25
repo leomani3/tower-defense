@@ -15,6 +15,7 @@ public class CannonTurret : BaseTurret
         go.transform.position = cannon.transform.position-cannon.transform.forward;
         go.transform.LookAt(target.transform.position);
         go.GetComponent<Ammunition>().direction = target.transform.position - cannon.transform.position;
+        go.GetComponent<Ammunition>().damage = damage;
     }
 
     // Update is called once per frame
