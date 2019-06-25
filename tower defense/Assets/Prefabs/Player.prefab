@@ -717,8 +717,10 @@ MonoBehaviour:
   CanBePlaced: {fileID: 2100000, guid: 8b1f593cb2a5f434b91d15154618f7ba, type: 2}
   constructableItems:
   - {fileID: 9139816520200165024, guid: 69a0565d2a3f1214bbf530c62f5d2e29, type: 3}
+  - {fileID: 6924667395393983334, guid: fa3ded84334d0b4478b753789c1a98ba, type: 3}
   constructableItemsPlaceHolders:
-  - {fileID: -8194498794760075765, guid: fe4d6b48617139a4187f7127dba3c6be, type: 3}
+  - {fileID: -7387706064836869012, guid: fe4d6b48617139a4187f7127dba3c6be, type: 3}
+  - {fileID: 8915010157989519185, guid: 5b3bbd508a4d56b41bb3dec5feef7bad, type: 3}
   placeHolderItem: {fileID: 3398072776070179033}
   levelGenerator: {fileID: 0}
 --- !u!1 &5249084135168344541
