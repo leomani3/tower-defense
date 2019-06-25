@@ -989,7 +989,7 @@ MonoBehaviour:
   target: {fileID: 0}
   zombiesInRange: []
   cooldown: 0
-  reloadTime: 2
+  reloadTime: 1
   damage: 1
 --- !u!1 &7643210433766454186
 GameObject:
