@@ -6,6 +6,8 @@ public abstract class Ammunition : MonoBehaviour
 {
     public float speed;
     public float weight;
+    public int damage;
+
     public Vector3 direction;
     Rigidbody rb;
 
