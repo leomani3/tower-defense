@@ -8,6 +8,7 @@ public class Player : Unit
     public float maxEnergy = 100f;
     public float attackEnergyCost = 20f;
     public float energyRegenSpeed = 30f;
+    public Construct construct;
     
     private float currentEnergy;
     private int mode = 1; //1: action 2: construction
@@ -16,6 +17,7 @@ public class Player : Unit
     void Start()
     {
         modeImage.color = new Color(1, 0, 0, 1);
+        construct.placeHolderItem.SetActive(false);
         currentEnergy = maxEnergy;
     }
 
@@ -30,8 +32,6 @@ public class Player : Unit
         {
             TakeDamage(1);
         }
-
-
     }
 
     public void ChangeMode()
@@ -40,11 +40,13 @@ public class Player : Unit
         {
             mode = 2;
             modeImage.color = new Color(0, 1, 1, 1);
+            construct.placeHolderItem.SetActive(true);
         }
         else if (mode == 2)
         {
             mode = 1;
             modeImage.color = new Color(1, 0, 0, 1);
+            construct.placeHolderItem.SetActive(false);
         }
     }
 
@@ -66,6 +68,7 @@ public class Player : Unit
         if (currentEnergy == maxEnergy)
         {
             Debug.Log("CONSTRUCT");
+            construct.PlaceAndConstruct();
             currentEnergy -= maxEnergy;
         }
         else
@@ -81,11 +84,14 @@ public class Player : Unit
 
     void UpdateEnergy()
     {
-        currentEnergy += Time.deltaTime * energyRegenSpeed;
-        if (currentEnergy >= maxEnergy)
+        if(currentEnergy<maxEnergy)
         {
-            currentEnergy = maxEnergy;
+            currentEnergy += Time.deltaTime * energyRegenSpeed;
+            if (currentEnergy >= maxEnergy)
+            {
+                currentEnergy = maxEnergy;
+            }
+            energyBar.fillAmount = currentEnergy / maxEnergy;
         }
-        energyBar.fillAmount = currentEnergy / maxEnergy;
     }
 }

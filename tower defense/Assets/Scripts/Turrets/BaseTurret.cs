@@ -60,14 +60,26 @@ public abstract class BaseTurret : BaseBuilding
     {
         float minDist = 9999999.0f;
         target = null;
-        foreach(GameObject go in zombiesInRange)
+        List<int> targetsToRemove = new List<int>();
+        for (int i = 0; i < zombiesInRange.Count; i++)
         {
-            float currentDist = (go.transform.position - go.transform.position).sqrMagnitude;
-            if(currentDist<minDist)
+            if(zombiesInRange[i] != null)
             {
-                target = go;
-                minDist = currentDist;
+                float currentDist = (zombiesInRange[i].transform.position - zombiesInRange[i].transform.position).sqrMagnitude;
+                if(currentDist<minDist)
+                {
+                    target = zombiesInRange[i];
+                    minDist = currentDist;
+                }
             }
+            else
+            {
+                targetsToRemove.Add(i);
+            }
+        }
+        for(int i=targetsToRemove.Count;i>0;i--)
+        {
+            zombiesInRange.Remove(zombiesInRange[targetsToRemove[i-1]]);
         }
     }
 }

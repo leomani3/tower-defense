@@ -23,18 +23,18 @@ public class PlayerController : MonoBehaviour
     {
         //--------------------LOOKAT--------------------
         //clavier / souris
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
-        }
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hit;
+        //if (Physics.Raycast(ray, out hit))
+        //{
+        //    transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+        //}
 
         //manette
         float horizontalAim = Input.GetAxisRaw(characterInputString + "aim horizontal");
-        float verticalAim = Input.GetAxisRaw(characterInputString + "aim vertical");
+        float verticalAim = -Input.GetAxisRaw(characterInputString + "aim vertical");
 
-        transform.LookAt(new Vector3(transform.position.x + verticalAim, transform.position.y, transform.position.z + horizontalAim));
+        transform.LookAt(new Vector3(transform.position.x + horizontalAim, transform.position.y, transform.position.z + verticalAim ));
 
 
         //--------------------MOUVEMENT--------------------
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         //--------------------BOUTON CHANGE MODE--------------------
         //Manette
         //clavier / souris
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetButtonDown(characterInputString + "Y"))
         {
             playerScript.ChangeMode();
         }
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         //--------------------BOUTON ACTION--------------------
         //Manette
         //clavier / souris
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown(characterInputString+"A")){
             if(playerScript.Mode == 1) //mode action
             {
                 playerScript.Attack();
