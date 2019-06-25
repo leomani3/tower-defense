@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 20f;
-    public int playerNumber;
     public string characterInputString;
 
     private Rigidbody rb;
@@ -14,8 +13,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        characterInputString = "character " + playerNumber + " ";
         playerScript = GetComponent<Player>();
+        characterInputString = "character " + playerScript.playerNumber + " ";
     }
 
     // Update is called once per frame
@@ -63,16 +62,59 @@ public class PlayerController : MonoBehaviour
             playerScript.ChangeMode();
         }
 
+        //--------------------BOUTON NAVIGUER DROITE DANS LA GRID ACTION --------------------
+        //Manette
+        //clavier / souris
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            playerScript.RightActiveGrid();
+        }
+
+        //--------------------BOUTON NAVIGUER GAUCHE DANS LA GRID ACTION --------------------
+        //Manette
+        //clavier / souris
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            playerScript.LeftActiveGrid();
+        }
+
+        //--------------------BOUTON NAVIGUER PAGE SUIVANTE DANS LA GRID ACTION --------------------
+        //Manette
+        //clavier / souris
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            playerScript.NextPageActiveGrid();
+        }
+
+        //--------------------BOUTON NAVIGUER PAGE PRECEDENTE DANS LA GRID ACTION --------------------
+        //Manette
+        //clavier / souris
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            playerScript.PreviousPageActiveGrid();
+        }
+
 
         //--------------------BOUTON ACTION--------------------
         //Manette
-        //clavier / souris
-        if (Input.GetMouseButtonDown(0)){
-            if(playerScript.Mode == 1) //mode action
+        if (Input.GetButtonDown(characterInputString + "A"))
+        {
+            if (playerScript.Mode == 0) //mode action
             {
                 playerScript.Attack();
             }
-            else if(playerScript.Mode == 2){ //mode construction
+            else if (playerScript.Mode == 1) //mode construction
+            {
+                playerScript.Construct();
+            }
+        }
+        //clavier / souris
+        if (Input.GetMouseButtonDown(0)){
+            if(playerScript.Mode == 0) //mode action
+            {
+                playerScript.Attack();
+            }
+            else if(playerScript.Mode == 1){ //mode construction
                 playerScript.Construct();
             }
         }
