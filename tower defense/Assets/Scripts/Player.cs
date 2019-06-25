@@ -72,13 +72,13 @@ public class Player : Unit
         {
             GridSetActive(0, true);
             GridSetActive(1, false);
-            construct.placeHolderItem.SetActive(true);
+            construct.placeHolderItem.SetActive(false);
         }
         else
         {
             GridSetActive(0, false);
             GridSetActive(1, true);
-            construct.placeHolderItem.SetActive(false);
+            construct.placeHolderItem.SetActive(true);
         }
     }
 
