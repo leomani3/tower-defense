@@ -14,7 +14,7 @@ public class GridNavigator : MonoBehaviour
     private string[] baseImageNames;
     private TextMeshProUGUI textNombrePage;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pageCount = transform.childCount;
         textNombrePage = transform.parent.parent.Find("TextNombrePage").GetComponent<TextMeshProUGUI>();
