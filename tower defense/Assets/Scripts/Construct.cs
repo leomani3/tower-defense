@@ -33,7 +33,7 @@ public class Construct : MonoBehaviour
         Vector3 newPos = new Vector3((int)pos.x+0.5f,(int)pos.y,(int)pos.z+0.5f);
         placeHolderItem.transform.position = newPos;
         placeHolderItem.transform.rotation = Quaternion.identity;
-        if(levelGenerator.gridCellOccupied[(int)newPos.x + (int)newPos.z * levelGenerator.mapSize] == false)
+        if(CanConstructItem())
         {
             placeHolderItem.GetComponent<MeshRenderer>().material = CanBePlaced;
         }
@@ -59,6 +59,7 @@ public class Construct : MonoBehaviour
             go.transform.position = new Vector3((int)buildingPos.x+0.5f,0.5f, (int)buildingPos.z+0.5f) ;
         }
     }
+
 
     public bool CanConstructItem()
     {
