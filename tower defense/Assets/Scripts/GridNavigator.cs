@@ -33,6 +33,7 @@ public class GridNavigator : MonoBehaviour
     /// </summary>
     public void SetActivePage(int number)
     {
+        transform.GetChild(currentIndexPage).gameObject.SetActive(false);
         currentIndexPage = number;
 
         RefreshPageCount();
