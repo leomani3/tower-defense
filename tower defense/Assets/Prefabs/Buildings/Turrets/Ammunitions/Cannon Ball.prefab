@@ -108,7 +108,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &-8485318345849227109
 MonoBehaviour:
@@ -124,9 +124,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   weight: 1
+  damage: 3
   direction: {x: 0, y: 0, z: 0}
   targets: []
-  damage: 3
 --- !u!135 &6623743621994148123
 SphereCollider:
   m_ObjectHideFlags: 0

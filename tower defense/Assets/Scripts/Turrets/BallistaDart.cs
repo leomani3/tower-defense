@@ -6,14 +6,14 @@ public class BallistaDart : Ammunition
 {
     public float stoppingPower;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if(other.tag =="Zombie")
+        if(other.gameObject.tag == "Zombie" )
         {
             other.gameObject.GetComponent<Rigidbody>().AddForce(direction * stoppingPower, ForceMode.Impulse);
-            other.GetComponent<Zombie>().TakeDamage(damage);
+            other.gameObject.GetComponent<Zombie>().TakeDamage(damage);
         }
-        if(other.tag == "Ground")
+        if(other.gameObject.tag == "Ground" )
         {
             Destroy(gameObject);
         }

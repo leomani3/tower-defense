@@ -15,7 +15,7 @@ public class CannonBall : Ammunition
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<Zombie>()!=null)
+        if(other.gameObject.GetComponent<Zombie>()!=null && !other.isTrigger)
         {
             targets.Add(other.gameObject);
         }
@@ -23,7 +23,7 @@ public class CannonBall : Ammunition
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<Zombie>() != null)
+        if (other.gameObject.GetComponent<Zombie>() != null && !other.isTrigger)
         {
             targets.Remove(other.gameObject);
         }
