@@ -16,7 +16,7 @@ public abstract class Ammunition : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody>();
         rb.mass = weight;
-        rb.velocity = direction.normalized * speed;
+        rb.velocity = Vector3.Normalize(direction) * speed;
     }
 
     public void SetVelocity(Vector3 v)
