@@ -32,6 +32,8 @@ public class LevelGenerator : MonoBehaviour
     public int[] ressourcesAmounts;
     public int[] minRessourcesPackSize;
     public float ressourcePackDensity;
+    public GameObject[] rocksWithMinerals;
+    public Material[] mineralMaterials; 
 
     public GameObject zombieSpawner;
     public int zombieSpawnerAmount;
@@ -189,14 +191,25 @@ public class LevelGenerator : MonoBehaviour
                         {
                             if (UnityEngine.Random.Range(0, ressourcePackDensity * minRessourcesPackSize[i]) > Math.Max(Math.Abs(j), Math.Abs(k)))
                             {
-                                GameObject go = Instantiate(ressources[i]);
+                                GameObject go;
+                                if(i>1) // gestion minerais
+                                {
+                                     go = Instantiate(rocksWithMinerals[UnityEngine.Random.Range(0, rocksWithMinerals.Length - 1)]);
+                                     go.transform.Rotate(new Vector3(0, UnityEngine.Random.Range(0, 359)));
+                                     Material[] mats = go.GetComponent<MeshRenderer>().materials;
+                                     mats[1] = mineralMaterials[i];
+                                     go.GetComponent<MeshRenderer>().materials = mats;
+                                }
+                                else
+                                {
+                                     go = Instantiate(ressources[i]);
+                                }
                                 gridCellOccupied[posX + k + (posZ + l) * mapSize] = true;
                                 go.transform.position = new Vector3(posX + k + 0.5f, 0.5f, posZ + l + 0.5f);
                             }
                         }
                     }
                 }
-
             }
         }
     }

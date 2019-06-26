@@ -1361,6 +1361,16 @@ MonoBehaviour:
   ressourcesAmounts: 1e0000001e0000001400000014000000
   minRessourcesPackSize: 06000000040000000300000003000000
   ressourcePackDensity: 1.5
+  rocksWithMinerals:
+  - {fileID: 3847184346340911950, guid: b803c5d3b7ab6624fbc1864f407b9bd6, type: 3}
+  - {fileID: 549820785436433643, guid: b204921108f6964428b53c4475364c5b, type: 3}
+  - {fileID: 7897709852700465875, guid: 9e3c27cb9ecf6614c9df0c0bc53356c2, type: 3}
+  - {fileID: 8310313590948285438, guid: 839792dfdc41273478c1cb7defb02a84, type: 3}
+  mineralMaterials:
+  - {fileID: 2100000, guid: e8386b664e9935a42a61f672b1b1650e, type: 2}
+  - {fileID: 2100000, guid: 7b8d680dee42ec64db4155cf59eee253, type: 2}
+  - {fileID: 2100000, guid: e8386b664e9935a42a61f672b1b1650e, type: 2}
+  - {fileID: 2100000, guid: 7b8d680dee42ec64db4155cf59eee253, type: 2}
   zombieSpawner: {fileID: 6547559874432814786, guid: c451ee44480965e4981d77e99d508c02,
     type: 3}
   zombieSpawnerAmount: 7
