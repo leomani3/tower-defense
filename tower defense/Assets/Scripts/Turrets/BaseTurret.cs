@@ -7,6 +7,7 @@ public abstract class BaseTurret : BaseBuilding
 
     public GameObject target;
     public List<GameObject> zombiesInRange;
+    public Animator turretAnimator;
     public float cooldown;
     public float reloadTime;
     public int damage;
@@ -26,8 +27,17 @@ public abstract class BaseTurret : BaseBuilding
         if (cooldown <= 0 && target!=null)
         {
             Attack();
+            if(turretAnimator!=null)
+            {
+                turretAnimator.SetBool("Reloading", false);
+                turretAnimator.SetBool("HasTarget", true);
+            }
         }
         cooldown -= Time.deltaTime;
+        if (cooldown < reloadTime / 2)
+        {
+            turretAnimator.SetBool("Reloading", true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -80,6 +90,10 @@ public abstract class BaseTurret : BaseBuilding
         for(int i=targetsToRemove.Count;i>0;i--)
         {
             zombiesInRange.Remove(zombiesInRange[targetsToRemove[i-1]]);
+        }
+        if(target == null && turretAnimator!=null)
+        {
+            turretAnimator.SetBool("HasTarget", false);
         }
     }
 }

@@ -6,6 +6,7 @@ public class SpinningBladeTurret : BaseTurret
 {
     public override void Attack()
     {
+
         cooldown = reloadTime;
         List<int> targetsToRemove = new List<int>();
         for (int i = 0; i < zombiesInRange.Count; i++)
