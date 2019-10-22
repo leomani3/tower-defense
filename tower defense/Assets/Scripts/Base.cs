@@ -9,7 +9,7 @@ public class Base : Unit
     private static int woodAmount;
     private static int stoneAmount;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update blbl
     void Start()
     {
         //On va chercher les settings du GameManager pour savoir le nombre de ressources de départ
