@@ -59,6 +59,7 @@ public class GridNavigator : MonoBehaviour
 
         //mise à jour des variables
         nbSlot = pages[index].transform.childCount;
+        Debug.Log("La page : " + index + " a " + pages[index].transform.childCount);
         for (int i = 0; i < nbSlot; i++)
         {
             slots.Add(pages[index].transform.GetChild(i).gameObject);
