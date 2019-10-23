@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
 
     public static int numberPlayer;
 
+    private void Start()
+    {
+        //TDOO : Faire apparaître le bon nombre de HUD en fonction du nombre de joueur
+    }
+
     public static void NextWave()
     {
         waveIndex++;

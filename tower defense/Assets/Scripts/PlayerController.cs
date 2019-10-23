@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         //On appelle une seule fois MovePosition pour les deux modes de controles car elle ne peut être appeler qu'une seule fois. Si on l'appele plusieurs fois, seule la dernière est prise en compte
         rb.MovePosition(transform.position + moveRightController + moveRightKeyboard + moveUpController + moveUpKeyboard);
 
-        //--------------------BOUTON CHANGE MODE--------------------
+       /* //--------------------BOUTON CHANGE MODE--------------------
         //Manette
         //clavier / souris
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetButtonDown(characterInputString + "Y"))
@@ -117,6 +117,6 @@ public class PlayerController : MonoBehaviour
             else if(playerScript.Mode == 1){ //mode construction
                 playerScript.Construct();
             }
-        }
+        }*/
     }
 }
