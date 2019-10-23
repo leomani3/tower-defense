@@ -7,44 +7,19 @@ using UnityEngine.UI;
 public class PlayerAction : MonoBehaviour
 {
     public enum MODE { fight, build};
+    private MODE currentMode;
+
     private int indexMode = 0; //0 = build       1 = fight
-    private int indexRow = 0; //index actuel de la page
-    private int indexCol = 0;
-    private int indexColMax = 4;
-    private int indexRowMax = 2; //Nombre de pages max
-    private int indexModeMax = 1; //Nombre de Mode max
+    private int indexModeMax;
 
-    private GameObject hud;
-
-    private GameObject modeGrid;
-    private GameObject actionGrid;
-    private GameObject buildGrid;
-
-
-    private List<GameObject> modeGridMods;
-    private List<GameObject> grids;
+    private GameObject ModeGrid;
 
     void Start()
     {
-        grids = new List<GameObject>();
+        ModeGrid = transform.Find("Player_hud").Find("ModeGrid").gameObject;
+        indexModeMax = ModeGrid.GetComponent<GridNavigator>().NbSlot;
 
-        hud = transform.Find("Player_hud").gameObject;
-        modeGrid = hud.transform.Find("ModeGrid").gameObject;
-
-        actionGrid = hud.transform.Find("ActionGrid").gameObject;
-        buildGrid = hud.transform.Find("BuildGrid").gameObject;
-        grids.Add(actionGrid);
-        grids.Add(buildGrid);
-
-        modeGridMods = new List<GameObject>();
-
-        for (int i = 0; i < modeGrid.transform.childCount; i++)
-        {
-            modeGridMods.Add(modeGrid.transform.GetChild(i).gameObject);
-        }
-
-        Debug.Log(indexRow);
-        SetActiveGrid(indexRow);
+        SetMode(0);
     }
 
     // Update is called once per frame
@@ -52,20 +27,15 @@ public class PlayerAction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            MoveUp();
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            MoveDown();
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            indexCol--;
-            grids[indexRow].GetComponent<Grid>().SetSelected(indexCol);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            indexCol++;
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -73,48 +43,42 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
+    public void SetMode(int i)
+    {
+        if (i == 0)
+            currentMode = MODE.build;
+        else if (i == 1)
+            currentMode = MODE.fight;
+    }
+
     private void ChangeMode()
     {
         indexMode++;
-        if (indexMode > indexModeMax)
+        if (indexMode > indexModeMax - 1)
         {
             indexMode = 0;
         }
+        SetMode(indexMode);
 
-        SetActiveGrid(indexMode);
+        ModeGrid.GetComponent<GridNavigator>().SetSelectedSlot(indexMode);
     }
 
     public void MoveUp()
     {
-        indexRow++;
-        if (indexRow > indexRowMax)
-        {
-            indexRow = 0;
-        }
     }
 
     public void MoveDown()
     {
-        indexRow--;
-        if (indexRow < 0)
-        {
-            indexRow = indexRowMax;
-        }
     }
 
-    public void SetActiveGrid(int index)
+    public void MoveRight()
     {
-        for (int i = 0; i < grids.Count; i++)
-        {
-            if (i == indexRow)
-            {
-                grids[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                grids[i].gameObject.SetActive(false);
-            }
-        }
+
+    }
+
+    public void MoveLeft()
+    {
+
     }
 
 }

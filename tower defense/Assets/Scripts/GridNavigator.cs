@@ -6,123 +6,80 @@ using TMPro;
 
 public class GridNavigator : MonoBehaviour
 {
-    public int currentIndexGrid = 0;
-    public int currentIndexPage = 0;
+    private int nbSlot;
+    private int nbPage;
 
-    private int gridCount;
-    private int pageCount;
-    private string[] baseImageNames;
-    private TextMeshProUGUI textNombrePage;
-    // Start is called before the first frame update
-    void Awake()
+    private List<GameObject> slots;
+    private List<GameObject> pages;
+
+    public int NbSlot
     {
-        pageCount = transform.childCount;
-        textNombrePage = transform.parent.parent.Find("TextNombrePage").GetComponent<TextMeshProUGUI>();
+        get { return nbSlot; }
+    }
+
+    public int NbPage
+    {
+        get { return nbPage; }
+    }
+
+    private void Start()
+    {
+        nbSlot = 0;
+
+        //initialisation des lists
+        slots = new List<GameObject>();
+        pages = new List<GameObject>();
+
+        //comptage de toutes les pages
+        nbPage = transform.childCount;
+        for (int i = 0; i < nbPage; i++)
+        {
+            pages.Add(transform.GetChild(i).gameObject);
+        }
+
         SetActivePage(0);
-        currentIndexPage = 0;
-    }
-
-    public void RefreshPageCount()
-    {
-        pageCount = transform.childCount;
+        SetSelectedSlot(0);
     }
 
 
-    /// <summary>
-    /// Cette fonction permet de changer la page active d'une grille. Elle désactive l'ancienne et active la nouvelle.
-    /// </summary>
-    public void SetActivePage(int number)
+    public void SetActivePage(int index)
     {
-        transform.GetChild(currentIndexPage).gameObject.SetActive(false);
-        currentIndexPage = number;
-
-        RefreshPageCount();
-        textNombrePage.text = currentIndexPage+1 + " / " + pageCount;
-
-        transform.GetChild(currentIndexPage).gameObject.SetActive(true);
-        gridCount = transform.GetChild(currentIndexPage).childCount;
-        baseImageNames = new string[gridCount];
-        for (int i = 0; i < gridCount; i++)
+        //affichage
+        for (int i = 0; i < pages.Count; i++)
         {
-            baseImageNames[i] = transform.GetChild(currentIndexPage).GetChild(i).GetComponent<Image>().sprite.name;
-        }
-
-        SetSelected(0, true);
-        currentIndexGrid = 0;
-    }
-
-    public void NextPage()
-    {
-        if (pageCount > 1)
-        {
-            SetSelected(currentIndexGrid, false);
-            transform.GetChild(currentIndexPage).gameObject.SetActive(false);
-
-            currentIndexPage++;
-            if (currentIndexPage == pageCount)
+            if (i == index)
             {
-                currentIndexPage = 0;
+                pages[i].gameObject.SetActive(true);
             }
-            SetActivePage(currentIndexPage);
-        }
-    }
-
-    public void PreviousPage()
-    {
-        if (pageCount > 1)
-        {
-            SetSelected(currentIndexGrid, false);
-            transform.GetChild(currentIndexPage).gameObject.SetActive(false);
-
-            currentIndexPage--;
-            if (currentIndexPage < 0)
+            else
             {
-                currentIndexPage = pageCount-1;
+                pages[i].gameObject.SetActive(false);
             }
-            SetActivePage(currentIndexPage);
         }
-    }
 
-    public void ForwardGrid()
-    {
-        //On déselectionne l'ancien
-        SetSelected(currentIndexGrid, false);
-
-        currentIndexGrid++;
-        if (currentIndexGrid == gridCount)
+        //mise à jour des variables
+        nbSlot = pages[index].transform.childCount;
+        for (int i = 0; i < nbSlot; i++)
         {
-            currentIndexGrid = 0;
+            slots.Add(pages[index].transform.GetChild(i).gameObject);
         }
-        SetSelected(currentIndexGrid, true);
-    }
-
-    public void BackwardGrid()
-    {
-        //On déselectionne l'ancien
-        SetSelected(currentIndexGrid, false);
-
-        currentIndexGrid--;
-        if (currentIndexGrid < 0)
-        {
-            currentIndexGrid = gridCount-1;
-        }
-        SetSelected(currentIndexGrid, true);
     }
 
     /// <summary>
-    /// Cette fonction permet de changer la case qui est selectionnée
+    /// Gère la sélection du currentSlot au niveua visuel
     /// </summary>
-    /// <param name="index"></param>
-    /// <param name="selected"></param>
-    public void SetSelected(int index, bool selected)
+    public void SetSelectedSlot(int ind)
     {
-        if (selected)
+        for (int i = 0; i < nbSlot; i++)
         {
-            transform.GetChild(currentIndexPage).GetChild(index).GetComponent<Image>().sprite = Resources.Load<Sprite>(baseImageNames[index]+"Selected");
-        }
-        else
-        {
-            transform.GetChild(currentIndexPage).GetChild(index).GetComponent<Image>().sprite = Resources.Load<Sprite>(baseImageNames[index]);
+            if (i == ind)
+            {
+                slots[i].transform.GetChild(0).gameObject.SetActive(true);
+            }
+            else
+            {
+                slots[i].transform.GetChild(0).gameObject.SetActive(false);
+            }
         }
     }
 }

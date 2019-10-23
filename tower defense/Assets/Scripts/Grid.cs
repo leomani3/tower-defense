@@ -11,43 +11,10 @@ public class Grid : MonoBehaviour
 
     private int indexSlot=0;
 
-    private void Start()
+
+    public void SetActivePage(int index)
     {
-        nbSlot = transform.childCount;
-        slots = new GameObject[nbSlot];
 
-        for (int i = 0; i < nbSlot; i++)
-        {
-            slots[i] = transform.GetChild(i).gameObject;
-        }
-
-        SetSelected(indexSlot);
-    }
-
-    public int GetIndexSlot()
-    {
-        return indexSlot;
-    }
-
-
-    public void MoveRight()
-    {
-        indexSlot++;
-        if (indexSlot > nbSlot-1)
-        {
-            indexSlot = 0;
-        }
-
-        SetSelected(indexSlot) ;
-    }
-
-    public void MoveLeft()
-    {
-        indexSlot--;
-        if (indexSlot < 0)
-        {
-            indexSlot = nbSlot;
-        }
     }
 
     /// <summary>
