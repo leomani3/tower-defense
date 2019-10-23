@@ -1,16 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerAction : MonoBehaviour
 {
+    public enum MODE { fight, build};
     private int indexMode = 0; //0 = build       1 = fight
-    private int indexCol = 0; //index actuel de la case
     private int indexRow = 0; //index actuel de la page
-    private int indexColMax = 5; //Nombre max de case max
-    private int indexRowMax = 3; //Nombre de pages max
-    private int indexModeMax = 2; //Nombre de Mode max
+    private int indexCol = 0;
+    private int indexColMax = 4;
+    private int indexRowMax = 2; //Nombre de pages max
+    private int indexModeMax = 1; //Nombre de Mode max
 
     private GameObject hud;
 
@@ -18,28 +20,31 @@ public class PlayerAction : MonoBehaviour
     private GameObject actionGrid;
     private GameObject buildGrid;
 
-    private GameObject selectMode;
 
     private List<GameObject> modeGridMods;
+    private List<GameObject> grids;
 
     void Start()
     {
-        hud = transform.Find("Player1_hud").gameObject;
+        grids = new List<GameObject>();
+
+        hud = transform.Find("Player_hud").gameObject;
         modeGrid = hud.transform.Find("ModeGrid").gameObject;
+
         actionGrid = hud.transform.Find("ActionGrid").gameObject;
         buildGrid = hud.transform.Find("BuildGrid").gameObject;
+        grids.Add(actionGrid);
+        grids.Add(buildGrid);
 
         modeGridMods = new List<GameObject>();
-
-        selectMode = hud.transform.Find("SelectMode").gameObject;
 
         for (int i = 0; i < modeGrid.transform.childCount; i++)
         {
             modeGridMods.Add(modeGrid.transform.GetChild(i).gameObject);
         }
 
-        selectMode.transform.parent = modeGridMods[0].transform.parent;
-        selectMode.transform.localPosition = modeGridMods[0].transform.localPosition;
+        Debug.Log(indexRow);
+        SetActiveGrid(indexRow);
     }
 
     // Update is called once per frame
@@ -55,12 +60,28 @@ public class PlayerAction : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            MoveLeft();
+            indexCol--;
+            grids[indexRow].GetComponent<Grid>().SetSelected(indexCol);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            MoveRight();
+            indexCol++;
         }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            ChangeMode();
+        }
+    }
+
+    private void ChangeMode()
+    {
+        indexMode++;
+        if (indexMode > indexModeMax)
+        {
+            indexMode = 0;
+        }
+
+        SetActiveGrid(indexMode);
     }
 
     public void MoveUp()
@@ -81,21 +102,18 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
-    public void MoveLeft()
+    public void SetActiveGrid(int index)
     {
-        indexCol--;
-        if (indexCol < 0)
+        for (int i = 0; i < grids.Count; i++)
         {
-            indexCol = indexColMax;
-        }
-    }
-
-    public void MoveRight()
-    {
-        indexCol++;
-        if (indexCol > indexColMax)
-        {
-            indexCol = 0;
+            if (i == indexRow)
+            {
+                grids[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                grids[i].gameObject.SetActive(false);
+            }
         }
     }
 
