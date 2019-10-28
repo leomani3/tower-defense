@@ -69,9 +69,6 @@ public class PlayerAction : MonoBehaviour
         {
             ChangeMode();
         }
-
-        Debug.Log(indexPage +" / " +indexPageMax);
-        Debug.Log(indexSlot +" / "+indexSlotMax);
     }
 
     public void SetMode(int i)
@@ -91,7 +88,13 @@ public class PlayerAction : MonoBehaviour
         }
         SetMode(indexMode);
 
+        indexPage = 0;
+        actionGrids[indexMode].GetComponent<GridNavigator>().SetActivePage(indexPage);
+        UpdateVariables();
+        CheckForIndexOverflow();
         ModeGrid.GetComponent<GridNavigator>().SetSelectedSlot(indexMode);
+
+
         SetActiveGrid();
     }
 
@@ -105,12 +108,8 @@ public class PlayerAction : MonoBehaviour
         }
         actionGrids[indexMode].GetComponent<GridNavigator>().SetActivePage(indexPage);
 
-        indexSlotMax = actionGrids[indexMode].GetComponent<GridNavigator>().NbSlot;
-        if (indexSlot > indexSlotMax - 1)
-        {
-            indexSlot = indexSlotMax - 1;
-        }
-
+        UpdateVariables();
+        CheckForIndexOverflow();
         actionGrids[indexMode].GetComponent<GridNavigator>().SetSelectedSlot(indexSlot);
     }
     
@@ -121,24 +120,17 @@ public class PlayerAction : MonoBehaviour
         {
             indexPage = 0;
         }
-
         actionGrids[indexMode].GetComponent<GridNavigator>().SetActivePage(indexPage);
 
-        indexSlotMax = actionGrids[indexMode].GetComponent<GridNavigator>().NbSlot;
-        if (indexSlot > indexSlotMax - 1)
-        {
-            indexSlot = indexSlotMax - 1;
-        }
+        UpdateVariables();
+        CheckForIndexOverflow();
         actionGrids[indexMode].GetComponent<GridNavigator>().SetSelectedSlot(indexSlot);
     }
 
     public void MoveRight()
     {
         indexSlot++;
-        if (indexSlot == indexSlotMax)
-        {
-            indexSlot = 0;
-        }
+        CheckForIndexOverflow();
 
         actionGrids[indexMode].GetComponent<GridNavigator>().SetSelectedSlot(indexSlot);
     }
@@ -146,12 +138,27 @@ public class PlayerAction : MonoBehaviour
     public void MoveLeft()
     {
         indexSlot--;
+        CheckForIndexOverflow();
+
+        actionGrids[indexMode].GetComponent<GridNavigator>().SetSelectedSlot(indexSlot);
+    }
+
+    public void UpdateVariables()
+    {
+        indexSlotMax = actionGrids[indexMode].GetComponent<GridNavigator>().NbSlot;
+        indexPageMax = actionGrids[indexMode].GetComponent<GridNavigator>().NbPage;
+    }
+
+    public void CheckForIndexOverflow()
+    {
+        if (indexSlot > indexSlotMax - 1)
+        {
+            indexSlot = 0;
+        }
         if (indexSlot < 0)
         {
             indexSlot = indexSlotMax - 1;
         }
-
-        actionGrids[indexMode].GetComponent<GridNavigator>().SetSelectedSlot(indexSlot);
     }
 
     public void SetActiveGrid()
@@ -167,14 +174,9 @@ public class PlayerAction : MonoBehaviour
                 actionGrids[i].SetActive(false);
             }
         }
-
-        if (indexSlot > actionGrids[indexMode].GetComponent<GridNavigator>().NbSlot-1) //Test pour éviter l'overflow quand on passe d'une grid sur laquelle on est à un indexSlot pour haut que l'indexSlotMax de la nouvelle grid
-        {
-            indexSlot = actionGrids[indexMode].GetComponent<GridNavigator>().NbSlot - 1;
-        }
         actionGrids[indexMode].GetComponent<GridNavigator>().SetSelectedSlot(indexSlot);
-        indexSlotMax = actionGrids[indexMode].GetComponent<GridNavigator>().NbSlot;
-        indexPageMax = actionGrids[indexMode].GetComponent<GridNavigator>().NbPage;
+
+        UpdateVariables();
     }
 
 }

@@ -22,7 +22,7 @@ public class GridNavigator : MonoBehaviour
         get { return nbPage; }
     }
 
-    private void Start()
+    private void Awake()
     {
         nbSlot = 0;
 
@@ -44,6 +44,7 @@ public class GridNavigator : MonoBehaviour
 
     public void SetActivePage(int index)
     {
+        slots.Clear();
         //affichage
         for (int i = 0; i < pages.Count; i++)
         {
@@ -57,9 +58,7 @@ public class GridNavigator : MonoBehaviour
             }
         }
 
-        //mise à jour des variables
         nbSlot = pages[index].transform.childCount;
-        Debug.Log("La page : " + index + " a " + pages[index].transform.childCount);
         for (int i = 0; i < nbSlot; i++)
         {
             slots.Add(pages[index].transform.GetChild(i).gameObject);
@@ -71,16 +70,12 @@ public class GridNavigator : MonoBehaviour
     /// </summary>
     public void SetSelectedSlot(int ind)
     {
+        Debug.Log("nombre de slots : " + nbSlot);
         for (int i = 0; i < nbSlot; i++)
         {
-            if (i == ind)
-            {
-                slots[i].transform.GetChild(0).gameObject.SetActive(true);
-            }
-            else
-            {
-                slots[i].transform.GetChild(0).gameObject.SetActive(false);
-            }
+            slots[i].transform.GetChild(0).gameObject.SetActive(false);
         }
+
+        slots[ind].transform.GetChild(0).gameObject.SetActive(true);
     }
 }
